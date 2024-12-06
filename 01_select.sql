@@ -58,6 +58,28 @@ SELECT emp_id, emp_name, salary *12 FROM employee;
 -- 별칭붙이기
 -- AS 별명 을 작성해주면 된다.
 -- AS : Alias = 별명, 별칭
+/*특정 테이블이나 컬럼명을 개발자가 원하는 표기로 조회할 수 있도록 설정해주는 별칭
+별칭 지정 SELECT FROM ODER BY 절에서 사용가능
+
+GROUP과 WHERE에서는 지정된것만 사용 가능.
+
+별칭 지정하기
+1) 컬럼명 AS 별칭   : 문자 O, 띄어쓰기 X , 특수문자 X  _를 활용해 띄어쓰기
+1) 컬럼명 AS "별칭" : 문자 O, 띄어쓰기 O , 특수문자 O
+1) 컬럼명 별칭      : 문자 O, 띄어쓰기 X , 특수문자 X
+1) 컬럼명 "별칭"    : 문자 O, 띄어쓰기 O , 특수문자 O
+
+--""의미 (""사이 글자 그대로 인식)
+-- 1) 대/소문자 구분
+-- 2) 특수문자, 띄어쓰기 인식
+
+SELECT 컬럼명 AS 별칭
+FROM 테이블명;
+
+SELECT 컬럼명 AS 별칭
+FROM 테이블명 별칭;
+
+*/
 
 SELECT emp_id, emp_name, salary *12 as 연봉 FROM employee;
 
