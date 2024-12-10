@@ -103,9 +103,81 @@ VALUES (30, '그린티라떼', '서울 송파구', '010-1234-5678');
 
 
 INSERT INTO EATS_MENU (MENU_ID, CAFE_ID, MENU_NAME, DESCRIPTION, PRICE)
-		VALUES ( 31, 11, '화이트 모카', '화이트 초콜릿과 에스프레소의 조화', 5500);
+		VALUES (31, 11, '화이트 모카', '화이트 초콜릿과 에스프레소의 조화', 5500);
 
+DELETE FROM EATS_MENU WHERE MENU_NAME = '화이트 모카';
+	
 SELECT * FROM EATS_MENU;
 
 INSERT INTO EATS_MENU (MENU_ID, CAFE_ID, MENU_NAME, DESCRIPTION, PRICE)
-		VALUES ( )
+		VALUES (32, 12, '얼그레이 티','향긋한 얼그레이 티', 4500 );
+		
+INSERT INTO EATS_MENU (MENU_ID, CAFE_ID, MENU_NAME, DESCRIPTION, PRICE)
+		VALUES (33, 13, '밀크티','부드러운 우유와 홍차의 조화',5000 );
+		
+INSERT INTO EATS_MENU (MENU_ID, CAFE_ID, MENU_NAME, DESCRIPTION, PRICE)
+		VALUES (34, 14, '초코칩 프라페','달콤한 초코칩과 커피의 만남', 6000 );
+	
+INSERT INTO EATS_MENU (MENU_ID, CAFE_ID, MENU_NAME, DESCRIPTION, PRICE)
+		VALUES (35, 15, '코코넛 라떼','코코넛 향이 가미된 독특한 라떼',5800 );
+	
+INSERT INTO EATS_MENU (MENU_ID, CAFE_ID, MENU_NAME, DESCRIPTION, PRICE)
+		VALUES (36, 16, '복숭아 에이드', '상큼한 복숭아와 탄산수', 5500 );
+	
+INSERT INTO EATS_MENU (MENU_ID, CAFE_ID, MENU_NAME, DESCRIPTION, PRICE)
+		VALUES (37, 17, '라즈베리 티','상큼한 라즈베리 향의 티',5000 );
+	
+INSERT INTO EATS_MENU (MENU_ID, CAFE_ID, MENU_NAME, DESCRIPTION, PRICE)
+		VALUES (38, 18, '오렌지 주스', '신선한 오렌지를 착즙한 주스', 4500);
+	
+INSERT INTO EATS_MENU (MENU_ID, CAFE_ID, MENU_NAME, DESCRIPTION, PRICE)
+		VALUES (39, 19, '헤이즐넛 라떼', '헤이즐넛 향이 풍부한 라떼', 5500 );
+	
+INSERT INTO EATS_MENU (MENU_ID, CAFE_ID, MENU_NAME, DESCRIPTION, PRICE)
+		VALUES (40, 20, '그린티 프라페', '녹차와 우유의 달콤한 음료',6000 );	
+	
+	
+	--DEPARTMENT 테이블에서 DEPT_ID 가 D9 인 부서 정보 조회
+SELECT * FROM DEPARTMENT
+WHERE DEPT_ID = 'D9'; -- 총무부
+
+-- DEPARTMENT 테이블에서 DEPT_ID 가 'D9' 인 행의 DEPT_TITLE 을 전략기획팀으로 수정
+
+UPDATE DEPARTMENT
+SET DEPT_TITLE = '전략기획팀'
+WHERE DEPT_ID = 'D9'; -- 변경!
+
+SELECT * FROM EATS;
+-- 로맨틱 블루라는 카페의 전화번호를 010-0000-1111로 변경
+UPDATE EATS
+SET CONTACT_NUMBER = '010-0000-1111'
+WHERE CAFE_NAME = '로맨틱블루';
+
+-- EATS_MENU 테이블에서 MENU_NAME = 화이트 모카인 메뉴의 가격을 6000으로 업데이트
+SELECT * FROM EATS_MENU;
+
+UPDATE EATS_MENU
+SET PRICE = 6000
+WHERE MENU_NAME = '화이트 모카';
+	
+-- EATS_MENU 테이블에서 MENU_NAME = 밀크티 인 메뉴의 설명을 '홍차와 우유가 어우러진 진한 맛' 으로 수정
+UPDATE EATS_MENU
+SET DESCRIPTION = '홍차와 우유가 어우러진 진한 맛'
+WHERE MENU_NAME = '밀크티';
+
+-- EATS_MENU 테이블에서 PRICE가 5500워너 이하인 모든 메뉴의 가격을 10% 인상하여 업데이트
+-- SET PRICE = PRICE * 1.1
+UPDATE EATS_MENU
+SET PRICE = PRICE * 1.1
+WHERE PRICE <= 5500;
+
+SELECT * FROM EATS;
+-- 그린빈 카페 서울시 종로구 010-2345-6789 에서 경기도 안양시 전화번호 제거로 업데이트
+-- 제거 = NULL
+UPDATE EATS
+SET LOCATION = '경기도 안양시', CONTACT_NUMBER = NULL
+WHERE CAFE_NAME = '그린빈 카페';
+
+
+		
+	
