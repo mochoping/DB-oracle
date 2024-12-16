@@ -1,0 +1,50 @@
+<head>
+  <style>
+    .card {
+      display: inline-grid; /* 앞면 뒷면 겹치기 */
+      color: white;
+      transition: transform 0.3s; /*애니메이션 속도*/
+      transform: perspective(800px) rotateY(0deg); /*rotateY 뒤집기*/
+      transform-style: preserve-3d; /*180 회전시 보이지 않기*/
+    }
+
+    .card:hover {
+      /*rotateY 뒤집기*/
+      transform: perspective(800px) rotateY(180deg); /*perspective 원근감 기울기 정도 값이 클수록 멀리있는것 처럼 보임 */
+    }
+
+    .card > * {
+      /*카드 모양*/
+      grid-area: 1 / 1 / 1 / 1; /* 앞면 뒷면 겹치기 */
+      width: 180px;
+      height: 300px;
+      padding: 12px;
+      border-radius: 8px;
+      backface-visibility: hidden; /*180 회전시 보이지 않기*/
+    }
+
+    .card-front {
+      background: linear-gradient(rgb(49, 75, 221), rgb(29, 163, 240));
+      background-image: url(./backtrump.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .card-back {
+      background: linear-gradient(rgb(2, 0, 122), rgb(110, 142, 245));
+      transform: rotateY(180deg); /*180도 회전되어있는 상태*/
+      background-image: url(./front_A.png); /*삽입 이미지*/
+      background-size: contain; /*비율맞춰 넣기, cover 가 비율무시 사이즈에 맞추기*/
+      background-repeat: no-repeat; /*이미지작을경우 반복*/
+      background-position: center; /*이미지위치*/
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <div class="card-front"></div>
+    <div class="card-back"></div>
+  </div>
+</body>
